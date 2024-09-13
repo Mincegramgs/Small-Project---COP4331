@@ -4,19 +4,43 @@
 	<script type="text/javascript" src="js/md5.js"></script>
 	<script type="text/javascript" src="js/code.js"></script>
     <link href="css/styles.css" rel="stylesheet">	
-    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
 </head>
 <body>
 
-<h1 id="title">COP 4331 LAMP Stack Demo</h1>
 
-<div id="loginDiv">
-	<span id="inner-title">PLEASE LOG IN</span>
+<div id = "formContainer">
+	<div id="loginDiv">
+	<box-icon name='user-pin' type='solid' animation='fade-down' color='rgba(21,39,50,0.51)' ></box-icon>
+	<span id="inner-title">User Log in:</span>
 	<input type="text" id="loginName" placeholder="Username" /><br />
 	<input type="password" id="loginPassword" placeholder="Password"/><br />
-	<button type="button" id="loginButton" class="buttons" onclick="doLogin();"> Do It </button>
+	<button type="button" id="loginButton" class="buttons" onclick="doLogin();"> Enter </button>
 	<span id="loginResult"></span>
+	<button id="openSignupModal" class="small-button">Sign Up</button>
+	</div>
 </div>
 
+<div id="signupModal" class="modal">
+	<div class="modal-content">
+		<span class="close">&times;</span>
+		<span id="inner-title">Sign Up:</span><br />
+		<input type="text" id="firstName" placeholder="First Name" /><br />
+		<input type="text" id="lastName" placeholder="Last Name" /><br />
+		<input type="text" id="signupName" placeholder="Username" /><br />
+		<input type="password" id="signupPassword" placeholder="Password" /><br />
+		<input type="password" id="confirmPassword" placeholder="Confirm Password" /><br />
+		<button type="button" id="loginButton" class="buttons" onclick="doSignup();">Sign Up</button>
+		<span id="signupResult"></span>
+	</div>
+</div>
+
+<!--Commenting this out for now until modal.js exists in the directory -->
+
+<script type="text/javascript" src="js/modal.js"></script>
 </body>
 </html>

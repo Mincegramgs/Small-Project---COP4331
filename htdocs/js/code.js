@@ -1,4 +1,4 @@
-const urlBase = 'https://contacts.lampcontactmanager.xyz/LAMPAPI';
+const urlBase = 'http://contacts.lampcontactmanager.xyz/LAMPAPI';
 const extension = 'php';
 
 let userId = 0;
@@ -10,11 +10,13 @@ function doLogin()
 	userId = 0;
 	firstName = "";
 	lastName = "";
-	
+	console.log("what");	
 	let login = document.getElementById("loginName").value;
 	let password = document.getElementById("loginPassword").value;
 //	var hash = md5( password );
-	
+	console.log(login);
+	console.log(password);
+
 	document.getElementById("loginResult").innerHTML = "";
 
 	let tmp = {login:login,password:password};
@@ -34,6 +36,7 @@ function doLogin()
 			{
 				let jsonObject = JSON.parse( xhr.responseText );
 				userId = jsonObject.id;
+				console.log(jsonObject + "wow");
 		
 				if( userId < 1 )
 				{		
@@ -46,7 +49,11 @@ function doLogin()
 
 				saveCookie();
 	
-				window.location.href = "color.html";
+				window.location.href = "contacts.html";
+
+
+
+				
 			}
 		};
 		xhr.send(jsonPayload);
@@ -56,6 +63,45 @@ function doLogin()
 		document.getElementById("loginResult").innerHTML = err.message;
 	}
 
+}
+
+function doSignup() {
+	
+	let firstname = document.getElementById("firstName").value;
+	let lastname = document.getElementById("lastName").value;
+	let login = document.getElementById("signupName").value;
+	let password = document.getElementById("signupPassword").value;
+
+	let tmp = {firstname : firstname, lastname : lastname, login:login,password:password};
+
+	let jsonPayload = JSON.stringify( tmp );
+
+	let url = urlBase + '/Signup.' + extension;
+
+	let xhr = new XMLHttpRequest();
+	xhr.open("POST", url, true);
+	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+	try
+	{
+		xhr.onreadystatechange = function() 
+		{
+			if (this.readyState == 4 && this.status == 200) 
+			{
+				let jsonObject = JSON.parse( xhr.responseText );
+				userId = jsonObject.id;
+				
+				console.log("Sign up successful");
+
+				saveCookie();
+	
+			}
+		};
+		xhr.send(jsonPayload);
+	}
+	catch(err)
+	{
+		document.getElementById("loginResult").innerHTML = err.message;
+	}
 }
 
 function saveCookie()
@@ -139,17 +185,19 @@ function addColor()
 	
 }
 
-function searchColor()
+function searchContacts()
 {
-	let srch = document.getElementById("searchText").value;
-	document.getElementById("colorSearchResult").innerHTML = "";
+	let srch = document.getElementById("search-contact-input").value;
+	// document.getElementById("colorSearchResult").innerHTML = "";
 	
-	let colorList = "";
+	let contactList = "";
 
 	let tmp = {search:srch,userId:userId};
 	let jsonPayload = JSON.stringify( tmp );
 
 	let url = urlBase + '/SearchColors.' + extension;
+
+	console.log(userId);
 	
 	let xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
@@ -160,19 +208,30 @@ function searchColor()
 		{
 			if (this.readyState == 4 && this.status == 200) 
 			{
-				document.getElementById("colorSearchResult").innerHTML = "Color(s) has been retrieved";
+				// document.getElementById("colorSearchResult").innerHTML = "Color(s) has been retrieved";
 				let jsonObject = JSON.parse( xhr.responseText );
 				
+				let parent = document.getElementById("contact-body");
+				while (parent.firstChild) {
+					parent.removeChild(parent.firstChild);
+				}
+
+				console.log(jsonObject.results);
+
 				for( let i=0; i<jsonObject.results.length; i++ )
 				{
-					colorList += jsonObject.results[i];
-					if( i < jsonObject.results.length - 1 )
-					{
-						colorList += "<br />\r\n";
-					}
+					contactList += jsonObject.results[i];
+					let div = document.createElement("div");
+					div.setAttribute("id", "contact-item");
+					div.innerHTML = jsonObject.results[i];
+					document.getElementById("contact-body").appendChild(div);
+					// if( i < jsonObject.results.length - 1 )
+					// {
+					// 	colorList += "<br />\r\n";
+					// }
 				}
 				
-				document.getElementsByTagName("p")[0].innerHTML = colorList;
+				// document.getElementsById("contact-item")[0].innerHTML = colorList;
 			}
 		};
 		xhr.send(jsonPayload);
