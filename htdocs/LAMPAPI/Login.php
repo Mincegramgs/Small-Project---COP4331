@@ -59,7 +59,7 @@ function debug_to_console($data) {
 	
 	function returnWithInfo( $firstName, $lastName, $id )
 	{
-		$retValue = '{"id":' . $id . ',"error":""}';
+		$retValue = '{"id":' . $id . ',"firstName":"' . $firstName . '","lastName":"' . $lastName . '","error":""}';
 		sendResultInfoAsJson( $retValue );
 	}
 	

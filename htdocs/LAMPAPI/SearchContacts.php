@@ -1,7 +1,5 @@
 <?php
-
 	$inData = getRequestInfo();
-
 	$searchResults = "";
 	$searchCount = 0;
 
@@ -11,61 +9,63 @@
 		returnWithError( $conn->connect_error );
 	}
 
+	else
+	{
+		$stmt = $conn->prepare("select ID, Name, Phone, Email from contact where Name like ? and UserID = ?");
+		$contactName = "%" . $inData["search"] . "%";
+		$stmt->bind_param("ss", $contactName, $inData["userId"]);
+		$stmt->execute();
+		$result = $stmt->get_result();
 
 
-	$UserID = $inData["ID"];
-	$search = $inData["search"];
+		while($row = $result->fetch_assoc())
+		{
+			if($searchCount > 0)
+			{
+				$searchResults .= ",";
+			}
 
+			$searchCount++;
+			$searchResults .= '{"ID": "' . $row["ID"] . '", "name": "' . $row["Name"] . '", "phone": "' . $row["Phone"]  . '", "email": "' . $row["Email"] . '"}';
+			//$searchResults .= '"' .$row["Name"] . '"';
+		}
 
-	#stmt = $conn->prepare("SELECT DatabaseName.ID, DatabaseName.firstName, DatabaseName.lastName, DatabaseName.email, DatabaseName.phoneNumber from DatabaseName");
+		if($searchCount == 0)
+		{
+			returnWithError("No Records Found");
+		}
 
-	<?php
+		else
+		{
+			returnWithInfo($searchResults);
+		}
 
-        $inData = getRequestInfo();
-
-        $searchResults = "";
-        $searchCount = 0;
-
-        $conn = new mysqli("localhost", "TheBeast", "WeLoveCOP4>        if ($conn->connect_error)
-        {
-                returnWithError( $conn->connect_error );
-        }
-
-
-
-        $UserID = $inData["ID"];
-        $search = $inData["search"];
-
-
-        #stmt = $conn->prepare("SELECT DatabaseName.ID, Databas>
-	//DO MORE WITH THIS 
-
-
-	
-
+		$stmt->close();
+		$conn->close();
+	}
 
 	function getRequestInfo()
 	{
 		return json_decode(file_get_contents('php://input'), true);
 	}
 
-	function sendResultInfoAsJson($jsonVal)
+	function sendResultInfoAsJson($obj)
 	{
 		header('Content-type: application/json');
-		echo $jsonVal;
+		echo $obj;
 	}
 
 	function returnWithError($err)
 	{
-		$jsonVal = sprintf('{"Contacts":[],"error":"%s"}', $err);
-		sendResultInfoAsJson($jsonVal);
-		exit;
+		$returnValue = '{"id":0,"Name":"","Phone":"","email":"","error":"' . $err . '"}';
+		sendResultInfoAsJson($returnValue);
 	}
 
-	function returnWithInfo($row)
+	function returnWithInfo($searchResults)
 	{
-		$jsonVal = sprintf('{"Contacts":%s,"error":""}', $row);
-		sendResultInfoAsJson($jsonVal);
+		$returnValue = '{"results":[' . $searchResults . '],"error":""}';
+		sendResultInfoAsJson($returnValue);
 	}
 
 ?>
+

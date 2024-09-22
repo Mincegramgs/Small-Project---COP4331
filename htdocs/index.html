@@ -15,13 +15,21 @@
 
 <div id = "formContainer">
 	<div id="loginDiv">
-	<box-icon name='user-pin' type='solid' animation='fade-down' color='rgba(21,39,50,0.51)' ></box-icon>
-	<span id="inner-title">User Log in:</span>
-	<input type="text" id="loginName" placeholder="Username" /><br />
-	<input type="password" id="loginPassword" placeholder="Password"/><br />
-	<button type="button" id="loginButton" class="buttons" onclick="doLogin();"> Enter </button>
-	<span id="loginResult"></span>
-	<button id="openSignupModal" class="small-button">Sign Up</button>
+		<box-icon name='tone' type='solid' flip='vertical' animation='flashing' color='#557fa1' ></box-icon>
+		<span id="inner-title">User Log in:</span>
+		<div class="input-container">
+			<ion-icon class="icon_user" name="person"></ion-icon>
+			<input type="text" id="loginName" placeholder="Username" required /><br/>
+		</div>
+		<div class="input-container">
+			<ion-icon class="icon_pw" name="lock"></ion-icon>
+			<input type="password" id="loginPassword" placeholder="Password" required/><br />
+		</div>
+		<div class="button-container">
+			<button type="button" id="loginButton" class="buttons" onclick="doLogin();"> Enter</button>
+			<button id="openSignupModal" class="small-button">Sign Up</button>
+		</div>
+		<span id="loginResult" class="result-message">Username/Password are incorrect.</span>
 	</div>
 </div>
 
@@ -29,18 +37,34 @@
 	<div class="modal-content">
 		<span class="close">&times;</span>
 		<span id="inner-title">Sign Up:</span><br />
-		<input type="text" id="firstName" placeholder="First Name" /><br />
-		<input type="text" id="lastName" placeholder="Last Name" /><br />
-		<input type="text" id="signupName" placeholder="Username" /><br />
-		<input type="password" id="signupPassword" placeholder="Password" /><br />
-		<input type="password" id="confirmPassword" placeholder="Confirm Password" /><br />
-		<button type="button" id="loginButton" class="buttons" onclick="doSignup();">Sign Up</button>
-		<span id="signupResult"></span>
+		<input type="text" id="firstName" placeholder="First Name" required/><br />
+		<input type="text" id="lastName" placeholder="Last Name" required/><br />
+		<input type="text" id="signupName" placeholder="Username" required /><br />
+		<input type="password" id="signupPassword" placeholder="Password" required /><br />
+		<button type="button" id="signupButton" class="buttons" onclick="doSignup();">Sign Up</button>
+		<span id="signupResult" class="result-message"></span>
 	</div>
 </div>
 
-<!--Commenting this out for now until modal.js exists in the directory -->
+<div id="signupNotification" class="notification">
+
+        <box-icon name='user-check' type='solid' animation='tada' color='#4da02f'></box-icon>	
+	<span>Account successfully created!</span>
+</div>
+
+
+<!-- Loading Screen -->
+
+<div id="loadingScreen" class="loading-container" style="display: none;">
+	<div class="content">
+		<div class="loading">
+			<p>loading</p>
+			<span></span>
+		</div>
+	</div>
+</div>
 
 <script type="text/javascript" src="js/modal.js"></script>
+<script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
 </body>
 </html>

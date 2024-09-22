@@ -1,0 +1,25 @@
+#create-contact-view {
+    border: 1px rgb(233, 228, 228) solid;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    width : 80%;
+    height : 90%;
+    /* margin : auto; */
+    margin : auto;
+    /* border: 1px solid purple; */
+    display : none;
+    flex-direction: column;
+    /* border-radius: 20px; */
+}
+
+
+.contact-add {
+    display: flex;
+    flex-direction: column;
+    margin-left: 32px;
+    margin-top: 32px;
+}
+
+.contact-add-input {
+    height : 32px;
+    width: 30%;
+}
