@@ -4,19 +4,67 @@
 	<script type="text/javascript" src="js/md5.js"></script>
 	<script type="text/javascript" src="js/code.js"></script>
     <link href="css/styles.css" rel="stylesheet">	
-    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
 </head>
 <body>
 
-<h1 id="title">COP 4331 LAMP Stack Demo</h1>
 
-<div id="loginDiv">
-	<span id="inner-title">PLEASE LOG IN</span>
-	<input type="text" id="loginName" placeholder="Username" /><br />
-	<input type="password" id="loginPassword" placeholder="Password"/><br />
-	<button type="button" id="loginButton" class="buttons" onclick="doLogin();"> Do It </button>
-	<span id="loginResult"></span>
+<div id = "formContainer">
+	<div id="loginDiv">
+		<box-icon name='tone' type='solid' flip='vertical' animation='flashing' color='#557fa1' ></box-icon>
+		<span id="inner-title">User Log in:</span>
+		<div class="input-container">
+			<ion-icon class="icon_user" name="person"></ion-icon>
+			<input type="text" id="loginName" placeholder="Username" required /><br/>
+		</div>
+		<div class="input-container">
+			<ion-icon class="icon_pw" name="lock"></ion-icon>
+			<input type="password" id="loginPassword" placeholder="Password" required/><br />
+		</div>
+		<div class="button-container">
+			<button type="button" id="loginButton" class="buttons" onclick="doLogin();"> Enter</button>
+			<button id="openSignupModal" class="small-button">Sign Up</button>
+		</div>
+		<span id="loginResult" class="result-message">Username/Password are incorrect.</span>
+	</div>
 </div>
 
+<div id="signupModal" class="modal">
+	<div class="modal-content">
+		<span class="close">&times;</span>
+		<span id="inner-title">Sign Up:</span><br />
+		<input type="text" id="firstName" placeholder="First Name" required/><br />
+		<input type="text" id="lastName" placeholder="Last Name" required/><br />
+		<input type="text" id="signupName" placeholder="Username" required /><br />
+		<input type="password" id="signupPassword" placeholder="Password" required /><br />
+		<button type="button" id="signupButton" class="buttons" onclick="doSignup();">Sign Up</button>
+		<span id="signupResult" class="result-message"></span>
+	</div>
+</div>
+
+<div id="signupNotification" class="notification">
+
+        <box-icon name='user-check' type='solid' animation='tada' color='#4da02f'></box-icon>	
+	<span>Account successfully created!</span>
+</div>
+
+
+<!-- Loading Screen -->
+
+<div id="loadingScreen" class="loading-container" style="display: none;">
+	<div class="content">
+		<div class="loading">
+			<p>loading</p>
+			<span></span>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript" src="js/modal.js"></script>
+<script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
 </body>
 </html>
