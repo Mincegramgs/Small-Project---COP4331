@@ -1,17 +1,25 @@
 #create-contact-view {
     border: 1px rgb(233, 228, 228) solid;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+<<<<<<< HEAD
     width : 40%;
     min-width: 512px;
     height : fit-content;
     /* margin : auto; */
     margin : 92px auto 0px auto;
+=======
+    width : 80%;
+    height : 90%;
+    /* margin : auto; */
+    margin : auto;
+>>>>>>> 5b3dd7ea1c63dc4ca7b0a2d95349bf3a9be7f47a
     /* border: 1px solid purple; */
     display : none;
     flex-direction: column;
     /* border-radius: 20px; */
 }
 
+<<<<<<< HEAD
 .contact-add {
     display: flex;
     flex-direction: column;
@@ -87,10 +95,19 @@
     font-size: 0.85rem;
     width: 70%;
     margin: 0px auto 8px auto;
+=======
+
+.contact-add {
+    display: flex;
+    flex-direction: column;
+    margin-left: 32px;
+    margin-top: 32px;
+>>>>>>> 5b3dd7ea1c63dc4ca7b0a2d95349bf3a9be7f47a
 }
 
 .contact-add-input {
     height : 32px;
+<<<<<<< HEAD
     width: 70%;
     margin: 0px auto 8px auto;
     /* border-radius: 0px; */
@@ -99,3 +116,7 @@
 
 
 
+=======
+    width: 30%;
+}
+>>>>>>> 5b3dd7ea1c63dc4ca7b0a2d95349bf3a9be7f47a
