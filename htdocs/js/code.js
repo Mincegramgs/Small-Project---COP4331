@@ -9,10 +9,6 @@ let lastName;
 let state = 0;
 
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 5b3dd7ea1c63dc4ca7b0a2d95349bf3a9be7f47a
 function showMessage(element) {
 
         element.classList.add("show");
@@ -22,11 +18,7 @@ function showMessage(element) {
 
 		setTimeout(() => {
 			element.classList.remove("show", "hide");
-<<<<<<< HEAD
 		}, 500); 
-=======
-		}, 500); // Wait for the hide animation to complete
->>>>>>> 5b3dd7ea1c63dc4ca7b0a2d95349bf3a9be7f47a
 	}, 3000);
 }
 
@@ -111,7 +103,6 @@ function showSignupNotification() {
 	        notification.style.display = 'block';
 
 	        setTimeout(() => {
-<<<<<<< HEAD
 			notification.style.opacity = '1'; 
 			        }, 10);
 	        setTimeout(() => {
@@ -120,16 +111,6 @@ function showSignupNotification() {
 
 				notification.style.display = 'none';
 			}, 500); 
-=======
-			notification.style.opacity = '1'; // Fade-in
-			        }, 10);
-	        setTimeout(() => {
-			notification.style.opacity = '0'; // Fade-out
-			setTimeout(() => {
-
-				notification.style.display = 'none';
-			}, 500); // Wait for the fade-out effect
->>>>>>> 5b3dd7ea1c63dc4ca7b0a2d95349bf3a9be7f47a
 
 		}, 3000);
 
@@ -249,7 +230,6 @@ function doLogout()
 
 }
 
-<<<<<<< HEAD
 function AddContactNotification() {
 
 	const notification = document.getElementById("addContactNotification");
@@ -280,8 +260,6 @@ function AddContactNotification() {
 
 }
 
-=======
->>>>>>> 5b3dd7ea1c63dc4ca7b0a2d95349bf3a9be7f47a
 const addContact = () => {
 	let firstname = document.getElementById("firstname").value;
 	let lastname = document.getElementById("lastname").value;
@@ -304,13 +282,9 @@ const addContact = () => {
 		{
 			if (this.readyState == 4 && this.status == 200) 
 			{
-<<<<<<< HEAD
 				console.log("Contact added");
 
 				AddContactNotification();
-=======
-				console.log("User added");
->>>>>>> 5b3dd7ea1c63dc4ca7b0a2d95349bf3a9be7f47a
 			}
 		};
 		xhr.send(jsonPayload);
@@ -321,10 +295,7 @@ const addContact = () => {
 	}
 }
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 5b3dd7ea1c63dc4ca7b0a2d95349bf3a9be7f47a
 function addColor()
 {
 	let newColor = document.getElementById("colorText").value;
@@ -356,7 +327,6 @@ function addColor()
 	
 }
 
-<<<<<<< HEAD
 const removeContact = (e) => {
 	let item = e.target.parentNode;
 	console.log(item.id);
@@ -479,13 +449,6 @@ function searchContacts()
 	let srch = document.getElementById("search-contact-input").value;
 	// document.getElementById("colorSearchResult").innerHTML = "";
 	
-=======
-function searchContacts()
-{
-	let srch = document.getElementById("search-contact-input").value;
-	// document.getElementById("colorSearchResult").innerHTML = "";
-	
->>>>>>> 5b3dd7ea1c63dc4ca7b0a2d95349bf3a9be7f47a
 	let contactList = "";
 
 	let tmp = {search:srch,userId:userId};
@@ -522,22 +485,15 @@ function searchContacts()
 					div.setAttribute("class", "contact-item");
 					div.setAttribute("id", jsonObject.results[i].ID);
 
-<<<<<<< HEAD
 					let name = document.createElement("input");
 					let number = document.createElement("input");
 					let email = document.createElement("input");
 					console.log("why");
-=======
-					let name = document.createElement("div");
-					let number = document.createElement("div");
-					let email = document.createElement("div");
->>>>>>> 5b3dd7ea1c63dc4ca7b0a2d95349bf3a9be7f47a
 
 					name.setAttribute("class", "contact-item-field");
 					number.setAttribute("class", "contact-item-field");
 					email.setAttribute("class", "contact-item-field");
 
-<<<<<<< HEAD
 					name.value = jsonObject.results[i].name;
 					number.value = jsonObject.results[i].phone;
 					email.value = jsonObject.results[i].email;
@@ -545,31 +501,20 @@ function searchContacts()
 					name.disabled = true;
 					number.disabled = true;
 					email.disabled = true;
-=======
-					name.innerHTML = jsonObject.results[i].name;
-					number.innerHTML = jsonObject.results[i].phone;
-					email.innerHTML = jsonObject.results[i].email;
->>>>>>> 5b3dd7ea1c63dc4ca7b0a2d95349bf3a9be7f47a
 
 					let editButton = document.createElement("button");
 					let removeButton = document.createElement("button");
 
 					editButton.setAttribute("class", "contact-item-button-edit")
-<<<<<<< HEAD
 					editButton.setAttribute("data-mode", "edit");
-=======
->>>>>>> 5b3dd7ea1c63dc4ca7b0a2d95349bf3a9be7f47a
 					removeButton.setAttribute("class", "contact-item-button-remove")
 
 					editButton.innerHTML = "Edit";
 					removeButton.innerHTML = "Remove";
 
-<<<<<<< HEAD
 					editButton.addEventListener("click", function(event) {activateInput(event)});
 					removeButton.addEventListener("click", function(event) {removeContact(event)});
 
-=======
->>>>>>> 5b3dd7ea1c63dc4ca7b0a2d95349bf3a9be7f47a
 					div.appendChild(name);
 					div.appendChild(email);
 					div.appendChild(number);
@@ -627,11 +572,8 @@ function deleteContact()
 	}
 }
 
-<<<<<<< HEAD
 
 
-=======
->>>>>>> 5b3dd7ea1c63dc4ca7b0a2d95349bf3a9be7f47a
 const viewContacts = () => {
 	document.getElementById("contact-view").style.display = "flex";
 	document.getElementById("create-contact-view").style.display = "none";
