@@ -5,6 +5,8 @@ let userId = 0;
 let firstName;
 let lastName;
 
+let editID = 0;
+
 // view or create
 let state = 0;
 
@@ -266,7 +268,10 @@ const addContact = () => {
 	let email = document.getElementById("email").value;
 	let phone = document.getElementById("phone").value;
 
-	
+	// Input validation
+	if (firstname == null || lastname == null || email == null || phone == null) {
+		
+	}
 
 	let tmp = {name: firstname + " " + lastname, email : email, phoneNumber: phone, userId : userId}
 	let jsonPayload = JSON.stringify( tmp );
@@ -328,7 +333,15 @@ function addColor()
 }
 
 const removeContact = (e) => {
+<<<<<<< Updated upstream
 	let item = e.target.parentNode;
+=======
+<<<<<<< HEAD
+	let item = e.target.parentNode.parentNode;
+=======
+	let item = e.target.parentNode;
+>>>>>>> bf04c4bbe183a8f45d5b099536b53b5f1b3d744e
+>>>>>>> Stashed changes
 	console.log(item.id);
 
 	let url = urlBase + '/RemoveContacts.' + extension;
@@ -357,7 +370,15 @@ const removeContact = (e) => {
 		console.log(err);
 	}
 
+<<<<<<< Updated upstream
 
+=======
+<<<<<<< HEAD
+	focus = null;
+=======
+
+>>>>>>> bf04c4bbe183a8f45d5b099536b53b5f1b3d744e
+>>>>>>> Stashed changes
 	item.remove();
 }
 
@@ -366,6 +387,38 @@ let focus = null;
 const activateInput = (e) => {
 
 	//console.log(focus.dataset.mode);
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+	console.log("FOCUS");
+	console.log(focus);
+	
+	// let contactItem = e.target.parentNode.parentNode.id;
+	let contactItem = document.getElementById("body" + e.target.parentNode.parentNode.id);
+	//console.log(contactItem);
+
+
+
+	if (focus != null && focus != contactItem) {
+		const inputs = [];
+
+		//console.log(document.querySelector('[data-id="name-input-'+ focus.dataset.contactId+'"]'))
+		//console.log('[data-id="name-input-'+ contactItem.dataset.contactId+']"');
+
+		inputs.push(document.querySelector('[data-id="name-input-'+ focus.dataset.contactId+'"]'));
+		inputs.push(document.querySelector('[data-id="number-input-'+ focus.dataset.contactId+'"]'));
+		inputs.push(document.querySelector('[data-id="email-input-'+ focus.dataset.contactId+'"]'));
+
+		console.log(inputs);
+
+		inputs.forEach((input) => {
+			input.disabled = true;
+		});
+
+		let edit = document.getElementById("edit" + focus.dataset.contactId);
+		//console.log(edit);
+=======
+>>>>>>> Stashed changes
 
 	//console.log(focus);
 	
@@ -376,6 +429,10 @@ const activateInput = (e) => {
 		inputs.forEach((input) => {
 			input.disabled = true;
 		})
+<<<<<<< Updated upstream
+=======
+>>>>>>> bf04c4bbe183a8f45d5b099536b53b5f1b3d744e
+>>>>>>> Stashed changes
 		edit.dataset.mode = "edit"
 		edit.innerHTML = "Edit";
 	}
@@ -386,16 +443,43 @@ const activateInput = (e) => {
 	if (e.target.dataset.mode == "save") {
 		e.target.dataset.mode = "edit";
 		e.target.innerHTML = "Edit";
+<<<<<<< Updated upstream
 		const inputs = Array.from(e.target.parentNode.children).slice(0, 3);
+=======
+<<<<<<< HEAD
+
+		let inputs = [];
+
+		inputs.push(document.querySelector('[data-id="name-input-'+ focus.dataset.contactId+'"]'));
+		inputs.push(document.querySelector('[data-id="number-input-'+ focus.dataset.contactId+'"]'));
+		inputs.push(document.querySelector('[data-id="email-input-'+ focus.dataset.contactId+'"]'));
+		
+=======
+		const inputs = Array.from(e.target.parentNode.children).slice(0, 3);
+>>>>>>> bf04c4bbe183a8f45d5b099536b53b5f1b3d744e
+>>>>>>> Stashed changes
 		inputs.forEach((input) => {
 			input.disabled = true;
 		});
 
 		// PHP request
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+		let id = contactItem.dataset.contactId;
+		console.log(id);
+		let url = urlBase + '/UpdateContacts.' + extension;
+		let tmp = {name : inputs[0].value, phone : inputs[1].value, email : inputs[2].value, contactId : id, userId : userId}
+=======
+>>>>>>> Stashed changes
 		let id = e.target.parentNode.id;
 		console.log(id);
 		let url = urlBase + '/UpdateContacts.' + extension;
 		let tmp = {name : inputs[0].value, email : inputs[1].value, phone : inputs[2].value, contactId : id, userId : userId}
+<<<<<<< Updated upstream
+=======
+>>>>>>> bf04c4bbe183a8f45d5b099536b53b5f1b3d744e
+>>>>>>> Stashed changes
 		console.log(tmp);
 		let jsonPayload = JSON.stringify( tmp );
 
@@ -425,11 +509,29 @@ const activateInput = (e) => {
 	} else {
 
 		// Open new input
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+		console.log(contactItem);
+
+		focus = contactItem;
+
+		let inputs = [];
+
+		inputs.push(document.querySelector('[data-id="name-input-'+ contactItem.dataset.contactId+'"]'));
+		inputs.push(document.querySelector('[data-id="number-input-'+ contactItem.dataset.contactId+'"]'));
+		inputs.push(document.querySelector('[data-id="email-input-'+ contactItem.dataset.contactId+'"]'));
+=======
+>>>>>>> Stashed changes
 		console.log(e.target.parentNode);
 
 		focus = e.target.parentNode;
 
 		const inputs = Array.from(e.target.parentNode.children).slice(0, 3);
+<<<<<<< Updated upstream
+=======
+>>>>>>> bf04c4bbe183a8f45d5b099536b53b5f1b3d744e
+>>>>>>> Stashed changes
 
 		inputs.forEach((input) => {
 			input.disabled = false;
@@ -439,7 +541,15 @@ const activateInput = (e) => {
 
 		e.target.innerHTML = "Save";
 
+<<<<<<< Updated upstream
 		console.log(inputs);
+=======
+<<<<<<< HEAD
+		//console.log(inputs);
+=======
+		console.log(inputs);
+>>>>>>> bf04c4bbe183a8f45d5b099536b53b5f1b3d744e
+>>>>>>> Stashed changes
 	}
 	
 }
@@ -482,18 +592,70 @@ function searchContacts()
 				{
 					contactList += jsonObject.results[i];
 					let div = document.createElement("div");
+					let buttonDiv = document.createElement("div");
+
+					let body = document.createElement("div");
+					body.setAttribute("class", "contact-item-body");
+					body.setAttribute("id", "body" + jsonObject.results[i].ID);
+					body.dataset.contactId = jsonObject.results[i].ID;
+
 					div.setAttribute("class", "contact-item");
 					div.setAttribute("id", jsonObject.results[i].ID);
+
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+					buttonDiv.setAttribute("class", "button-div");
+					buttonDiv.setAttribute("id", jsonObject.results[i].ID);
+=======
+>>>>>>> Stashed changes
+					let name = document.createElement("input");
+					let number = document.createElement("input");
+					let email = document.createElement("input");
+					console.log("why");
+<<<<<<< Updated upstream
+=======
+>>>>>>> bf04c4bbe183a8f45d5b099536b53b5f1b3d744e
+>>>>>>> Stashed changes
 
 					let name = document.createElement("input");
 					let number = document.createElement("input");
 					let email = document.createElement("input");
 					console.log("why");
 
-					name.setAttribute("class", "contact-item-field");
-					number.setAttribute("class", "contact-item-field");
-					email.setAttribute("class", "contact-item-field");
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+					let infoContainer = document.createElement("div");
+					infoContainer.setAttribute("class", "contact-item-infoContainer");
 
+					let numberContainer = document.createElement("div");
+					let emailContainer = document.createElement("div");
+					numberContainer.setAttribute("class", "number-container");
+					emailContainer.setAttribute("class" , "email-container");
+
+					let numberLabel = document.createElement("div");
+					let emailLabel = document.createElement("div");
+					numberLabel.setAttribute("class", "number-label");
+					emailLabel.setAttribute("class", "number-label");
+					numberLabel.innerHTML = "Number:";
+					emailLabel.innerHTML = "Email:"
+
+					name.setAttribute("class", "contact-item-name");
+					number.setAttribute("class", "contact-item-number");
+					email.setAttribute("class", "contact-item-email");
+
+					name.setAttribute("id", "contact-item-name" + jsonObject.results[i].ID);
+					number.setAttribute("id", "contact-item-number" + jsonObject.results[i].ID);
+					email.setAttribute("id", "contact-item-email" + jsonObject.results[i].ID);
+
+					name.dataset.id = "name-input-" + jsonObject.results[i].ID;
+					number.dataset.id = "number-input-" + jsonObject.results[i].ID;
+					email.dataset.id = "email-input-" + jsonObject.results[i].ID;
+
+=======
+>>>>>>> bf04c4bbe183a8f45d5b099536b53b5f1b3d744e
+>>>>>>> Stashed changes
 					name.value = jsonObject.results[i].name;
 					number.value = jsonObject.results[i].phone;
 					email.value = jsonObject.results[i].email;
@@ -509,19 +671,52 @@ function searchContacts()
 					editButton.setAttribute("data-mode", "edit");
 					removeButton.setAttribute("class", "contact-item-button-remove")
 
+					editButton.setAttribute("id", "edit" + jsonObject.results[i].ID)
+					removeButton.setAttribute("id", "remove" + jsonObject.results[i].ID)
+
 					editButton.innerHTML = "Edit";
 					removeButton.innerHTML = "Remove";
 
 					editButton.addEventListener("click", function(event) {activateInput(event)});
 					removeButton.addEventListener("click", function(event) {removeContact(event)});
 
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+					// document.getElementById("contact-body-main").appendChild(name);
+					body.appendChild(name);
+					// body.appendChild(email);
+					// body.appendChild(number);
+					emailContainer.appendChild(emailLabel);
+					numberContainer.appendChild(numberLabel);
+					emailContainer.appendChild(email);
+					numberContainer.appendChild(number);
+
+					infoContainer.appendChild(emailContainer);
+					infoContainer.appendChild(numberContainer);
+					body.appendChild(infoContainer);
+
+					buttonDiv.appendChild(editButton);
+					buttonDiv.appendChild(removeButton);
+
+					div.appendChild(body);
+					div.appendChild(buttonDiv);
+
+					// div.appendChild(editButton);
+					// div.appendChild(removeButton);
+
+					
+=======
+>>>>>>> Stashed changes
 					div.appendChild(name);
 					div.appendChild(email);
 					div.appendChild(number);
 					div.appendChild(editButton);
 					div.appendChild(removeButton);
+>>>>>>> bf04c4bbe183a8f45d5b099536b53b5f1b3d744e
 
 					// div.innerHTML = `${jsonObject.results[i].name} ${jsonObject.results[i].email} ${jsonObject.results[i].phone} `;
+
 					document.getElementById("contact-body").appendChild(div);
 					
 					
@@ -577,6 +772,7 @@ function deleteContact()
 const viewContacts = () => {
 	document.getElementById("contact-view").style.display = "flex";
 	document.getElementById("create-contact-view").style.display = "none";
+	searchContacts();
 }
 
 const viewCreateContact = () => {

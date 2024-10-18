@@ -1,3 +1,172 @@
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+<html>
+<head>
+        <title>COP 4331 LAMP Stack Demo</title>
+        <script type="text/javascript" src="js/code.js"></script>
+        <link href="css/contacts.css" rel="stylesheet">
+        <link href="css/create-contact.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+
+        <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function()
+        {
+                readCookie();
+                searchContacts();
+        }, false);
+        </script>
+
+</head>
+<body>
+
+<!-- <h1 id="title">COP 4331 LAMP Stack Demo</h1> -->
+
+<div id="main-container">
+ <div id="navbar">
+        <div id="navbar-title">
+                <div class="navbar-title-1">Contact Manager</div>
+                <div id="navbar-title-2">Loading...</div>
+        </div>
+        <div id="navbar-main">
+                <div class="search-contact-div">
+
+		        <input type="text" id="search-contact-input" placeholder="Search for Contacts" oninput="searchContacts()"/>
+
+			<!-- <button type="button" class="search-contact-button" onclick="searchContacts();" style="display: none;"> Search </button> -->
+
+		</div>
+                
+        </div>
+
+        <div id="navbar-footer">
+                <button type="button" id="navbar-logout" onclick="doLogout();"> Log Out </button>
+        </div>
+ </div>
+
+ <div id="body-container">
+        <div id="sidebar">
+                <div id="sidebar-user">
+                </div>
+                <div id="sidebar-menu">
+                        <div class="navbar-main-tab" onclick="viewContacts();">View Contacts</div>
+                        <div class="navbar-main-tab" onclick="viewCreateContact();">Create Contact</div>
+                        <!-- <div id="sidebar-menu-item">
+                                View Contacts
+                        </div>
+
+                        <div id="sidebar-menu-item">
+                                Create Contacts
+                        </div>
+
+                        <div id="sidebar-menu-item">
+                                About
+                        </div>
+
+                        <div id="sidebar-menu-item">
+                                Test
+                        </div> -->
+
+
+                </div>
+        </div>
+        <div id="contact-view">
+                <!-- <div id="contact-view-header">
+                        <div id="contact-view-header-title">Contacts</div>
+
+                </div> -->
+
+
+		 
+                
+                        
+                <!-- <div class="contact-add">
+                        <input type="text" id="firstname" class="contact-add-input" placeholder="Firstname"/>
+                        <input type="text" id="lastname" class="contact-add-input" placeholder="Lastname"/>
+                        <input type="text" id="email" class="contact-add-input" placeholder="Email"/>
+                        <input type="text" id="phone" class="contact-add-input" placeholder="Phone"/>
+                        <button onclick="addContact();">Add Contact</button>
+                </div> -->
+
+                <!-- <div class="contact-labels">
+                        <div class="contact-label" >Name</div>
+                        <div class="contact-label">Email</div>
+                        <div class="contact-label">Phone</div>
+                </div> -->
+
+                <div id="contact-body">
+                        <!-- <div class="contact-item-div">
+
+                        </div> -->
+                </div>
+        </div>
+
+        <div id="create-contact-view">
+                <div class="create-contact-header">
+                        Create a new contact
+                </div>
+                <div class="contact-add">
+                        <div class="contact-add-input-label">Firstname</div>
+                        <input type="text" id="firstname" class="contact-add-input" placeholder="John" required/>
+                        
+                        <div class="contact-add-input-label" required>Lastname</div>
+                        <input type="text" id="lastname" class="contact-add-input" placeholder="Doe"/>
+                        
+                        <div class="contact-add-input-label">Email</div>
+                        <input type="text" id="email" class="contact-add-input" placeholder="example@gmail.com"/>
+                        
+                        <div class="contact-add-input-label">Phone</div>
+                        <input type="text" id="phone" class="contact-add-input" placeholder="123-123-1234"/>
+                        <button class="contact-add-button" onclick="addContact();">Add Contact</button>
+                </div>
+        </div>
+                <!-- <span id="colorSearchResult"></span>
+                <p id="colorList"></p> -->
+
+                <!-- <input type="text" id="searchText" placeholder="Color To Search For"/>
+                <button type="button" id="searchColorButton" class="buttons" onclick="searchContact();"> Search Contacts </button><br />
+                <span id="colorSearchResult"></span>
+                <p id="colorList">
+                </p><br /><br />
+
+                <input type="text" id="colorText" placeholder="Yuh">
+                <button type="button" id="addColorButton" class="buttons" onclick="addContact();"> Add Contacts </button><br />
+                <span id="colorAddResult"></span> -->
+
+
+        </div>
+ </div>
+
+
+</div>
+
+ <div id="addContactNotification" class="notification">
+
+	 <ion-icon name="person-add"></ion-icon>	                
+	 <span>Contact added!</span>
+
+
+					            
+ </div>
+
+ <div id="loadingScreen" class="loading-container" style="display: none;">
+	     <div class="content">
+		      
+		     <div class="loading">
+				            
+			     <p>Logging out...</p>
+		
+			     <span></span>
+		     </div>								         </div>
+ </div>
+
+ <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+</body>
+
+</html>
+
+=======
+>>>>>>> Stashed changes
 <html>
 <head>
         <title>COP 4331 LAMP Stack Demo</title>
@@ -159,3 +328,7 @@
 
 </html>
 
+<<<<<<< Updated upstream
+=======
+>>>>>>> bf04c4bbe183a8f45d5b099536b53b5f1b3d744e
+>>>>>>> Stashed changes
